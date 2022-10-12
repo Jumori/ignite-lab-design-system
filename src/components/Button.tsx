@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({
   asChild = false,
   disabled = false,
   ...restProps
-}: ButtonProps) => {
+}) => {
   const Comp = asChild ? Slot : 'button'
 
   return (

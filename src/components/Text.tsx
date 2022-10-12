@@ -12,7 +12,7 @@ export const Text: React.FC<TextProps> = ({
   size = 'md',
   children,
   asChild = false
-}: TextProps) => {
+}) => {
   const Comp = asChild ? Slot : 'span'
 
   return (

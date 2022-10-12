@@ -12,7 +12,7 @@ export const Heading: React.FC<HeadingProps> = ({
   size = 'md',
   children,
   asChild = false
-}: HeadingProps) => {
+}) => {
   const Comp = asChild ? Slot : 'h2'
 
   return (
