@@ -1,39 +1,27 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
-import { Checkbox, CheckboxRootProps } from './Checkbox'
+import { Checkbox, CheckboxProps } from './Checkbox'
+import { Text } from './Text'
 
-const Template: Meta<CheckboxRootProps> = {
+const Template: Meta<CheckboxProps> = {
   title: 'Components/Checkbox',
-  component: Checkbox.Root,
+  component: Checkbox,
   args: {
-    children: <Checkbox.Indicator key={Checkbox.Indicator.displayName} />
+    id: 'remember'
   },
-  argTypes: {
-    children: {
-      table: {
-        disable: true
-      }
+  argTypes: {},
+  decorators: [
+    Story => {
+      return (
+        <label htmlFor="remember" className="flex items-center gap-2">
+          {Story()}
+          <Text size="sm">Remember me for 30 days</Text>
+        </label>
+      )
     }
-  }
+  ]
 }
 
 export default Template
 
-export const Default: StoryObj<CheckboxRootProps> = {}
-
-export const WithLabel: StoryObj<CheckboxRootProps> = {
-  args: {
-    children: [
-      <Checkbox.Indicator
-        key={Checkbox.Indicator.displayName}
-        name="storybook-checkbox"
-      />,
-      <Checkbox.Label
-        key={Checkbox.Label.displayName}
-        name="storybook-checkbox"
-      >
-        Lorem ipsum dolor sit amet, consectetur adip
-      </Checkbox.Label>
-    ]
-  }
-}
+export const Default: StoryObj<CheckboxProps> = {}
